@@ -1,11 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+axios.defaults.baseURL = "https://maksym-kovorotnyi.github.io/SuperHero-back/";
+
 export const getHeroList = createAsyncThunk(
-  "api/getHeroList",
-  async ({ page, limit }, { rejectWithValue }) => {
+  "heroes/getHeroList",
+  async ({ page = 1, limit = 5 }, { rejectWithValue }) => {
     try {
-      const data = await axios.get(`/api/?page=${page}&limit=${limit}`);
+      const data = await axios.get(`api/?page=${page}&limit=${limit}`);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
