@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getHeroList } from "./heroOperations";
+import { getHeroList, getOneHeroInfo } from "./heroOperations";
 
 const heroesInitialState = {
   heroes: [],
+  heroCard: [],
   total: 0,
   isLoading: false,
 };
@@ -20,6 +21,16 @@ const heroesSlice = createSlice({
       state.total = payload.total;
     });
     builder.addCase(getHeroList.rejected, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(getOneHeroInfo.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getOneHeroInfo.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.heroCard = payload;
+    });
+    builder.addCase(getOneHeroInfo.rejected, (state) => {
       state.isLoading = false;
     });
   },
