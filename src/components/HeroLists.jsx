@@ -1,11 +1,11 @@
 import React from "react";
 import HeroItem from "./HeroItems";
 
-function HeroList() {
+function HeroList({ openmodal }) {
   return (
     <div>
       <ul>
-        <HeroItem />
+        <HeroItem open={openmodal} />
       </ul>
     </div>
   );

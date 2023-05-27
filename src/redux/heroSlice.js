@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getHeroList, getOneHeroInfo } from "./heroOperations";
+import { deleteHero, getHeroList, getOneHeroInfo } from "./heroOperations";
 
 const heroesInitialState = {
   heroes: [],
@@ -33,13 +33,23 @@ const heroesSlice = createSlice({
     builder.addCase(getOneHeroInfo.rejected, (state) => {
       state.isLoading = false;
     });
+    builder.addCase(deleteHero.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(deleteHero.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(deleteHero.rejected, (state) => {
+      state.isLoading = false;
+    });
   },
   reducers: {
-    // clearNotices(state, { payload }) {
-    //   state.notices = payload;
-    // },
+    deleteHeroFromArray(state, { payload }) {
+      state.heroes = state.heroes.filter((hero) => hero._id !== payload);
+      state.heroCard = [];
+    },
   },
 });
 
 export const heroesReducer = heroesSlice.reducer;
-// export const { для звичайних редюсорів } = heroesSlice.actions;
+export const { deleteHeroFromArray } = heroesSlice.actions;
