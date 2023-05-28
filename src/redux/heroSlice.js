@@ -53,7 +53,8 @@ const heroesSlice = createSlice({
     builder.addCase(createHero.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(createHero.fulfilled, (state) => {
+    builder.addCase(createHero.fulfilled, (state, { payload }) => {
+      state.heroes.push(payload);
       state.isLoading = false;
     });
     builder.addCase(createHero.rejected, (state) => {

@@ -11,16 +11,16 @@ function ModalCreateHero({ open = false }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    dispatch(
-      createHero({
-        nickname: form.nickname.value,
-        real_name: form.realName.value,
-        origin_description: form.description.value,
-        catch_phrase: form.phrase.value,
-        image: selectedFile,
-      })
-    );
-    // form.reset();
+
+    const formData = new FormData();
+
+    formData.append("nickname", form.nickname.value);
+    formData.append("real_name", form.realName.value);
+    formData.append("origin_description", form.description.value);
+    formData.append("catch_phrase", form.phrase.value);
+    formData.append("images", selectedFile);
+
+    await dispatch(createHero(formData));
   };
   const handleChange = (e) => {
     setSelectedFile(e.target.files[0]);
