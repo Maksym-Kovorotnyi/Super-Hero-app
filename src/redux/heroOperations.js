@@ -44,7 +44,7 @@ export const deleteHero = createAsyncThunk(
 export const createHero = createAsyncThunk(
   "heroes/createHero",
   async (
-    { nickname, real_name, origin_description, catch_phrase, images },
+    { nickname, real_name, origin_description, catch_phrase, image },
     { rejectWithValue }
   ) => {
     try {
@@ -53,7 +53,7 @@ export const createHero = createAsyncThunk(
         real_name,
         origin_description,
         catch_phrase,
-        images,
+        image,
       });
       return data;
     } catch (error) {

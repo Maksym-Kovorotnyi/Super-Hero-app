@@ -1,37 +1,38 @@
 import React, { useEffect } from "react";
-
-import ModalFullInfo from "../ModalFullInfo";
-import ModalCreateHero from "../ModalCreateHero";
+import ModalFullInfo from "../ModalFullInfo/ModalFullInfo";
+import ModalCreateHero from "../ModalCreateHero/ModalCreateHero";
+import css from "./Modal.Helper.module.css";
 
 function ModalHelper({ modal = "", closemodal }) {
-  const handleKeydown = (e) => {
-    if (e.code === "Escape") {
+  const handleModalCloseByEsc = (e) => {
+    if (e.key === "Escape") {
       closemodal(false);
     }
   };
 
   useEffect(() => {
-    window.addEventListener("keydown", handleKeydown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
+    window.addEventListener("keydown", handleModalCloseByEsc);
     return () => {
-      window.removeEventListener("keydown", handleKeydown);
+      window.removeEventListener("keydown", handleModalCloseByEsc);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
   const handleModalCloseByBackdrop = (e) => {
-    // closemodal(false);
+    if (e.target.className === "Modal_Helper_backdrop__xxh5N") {
+      closemodal(false);
+    }
   };
 
   return (
     <>
-      <div onClick={handleModalCloseByBackdrop}>
-        <ModalFullInfo open={modal === "fullInfo"} close={closemodal} />
-        <ModalCreateHero open={modal === "createHero"} close={closemodal} />
-      </div>
+      {modal ? (
+        <div className={css.backdrop} onClick={handleModalCloseByBackdrop}>
+          <ModalFullInfo open={modal === "fullInfo"} />
+          <ModalCreateHero open={modal === "createHero"} />
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 }

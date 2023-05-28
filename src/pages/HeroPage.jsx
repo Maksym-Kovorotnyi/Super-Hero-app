@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getHeroList } from "../redux/heroOperations";
-import HeroList from "../components/HeroLists";
+import HeroList from "../components/HeroList/HeroLists";
+import CreateHeroBtn from "../components/CreateHeroBtn/CreateHeroBtn";
 import ModalHelper from "../components/Modals/ModalHelper/ModalHelper";
 
 function HeroPage() {
@@ -23,8 +24,8 @@ function HeroPage() {
 
   return (
     <div onClick={handleModalOpen}>
-      <button data-modal="createHero">Add new hero</button>
-      <HeroList openmodal={setIsOpen} />
+      <CreateHeroBtn />
+      <HeroList />
       <ModalHelper modal={isOpen} closemodal={setIsOpen} />
     </div>
   );

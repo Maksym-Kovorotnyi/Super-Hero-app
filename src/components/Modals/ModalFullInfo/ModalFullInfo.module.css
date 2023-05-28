@@ -1,0 +1,51 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.imgContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.img {
+    width: 250px;
+    height:350px;
+   
+}
+
+.text {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #111111;
+    margin-bottom: 10px;
+}
+.dynText{
+    font-weight: 400;
+    font-size: 16px;
+        line-height: 22px;
+        color: #111111;
+        margin-bottom: 10px;
+}
+
+.btn {
+    width: 150px;
+    height: 48px;
+    color: #fff;
+    background-color: #aa4949;
+    border: 2px solid #aa4949;
+    border-radius: 40px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #8e1414;
+}
