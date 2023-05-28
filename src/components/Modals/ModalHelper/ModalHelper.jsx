@@ -23,14 +23,14 @@ function ModalHelper({ modal = "", closemodal }) {
   }, []);
 
   const handleModalCloseByBackdrop = (e) => {
-    closemodal(false);
+    // closemodal(false);
   };
 
   return (
     <>
       <div onClick={handleModalCloseByBackdrop}>
-        <ModalFullInfo open={modal === "fullInfo"} />
-        <ModalCreateHero open={modal === "createHero"} />
+        <ModalFullInfo open={modal === "fullInfo"} close={closemodal} />
+        <ModalCreateHero open={modal === "createHero"} close={closemodal} />
       </div>
     </>
   );

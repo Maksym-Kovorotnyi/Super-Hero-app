@@ -41,17 +41,26 @@ export const deleteHero = createAsyncThunk(
   }
 );
 
-// export const addNotices = createAsyncThunk(
-//   "notices/addNotices",
-//   async (newNotice, { rejectWithValue }) => {
-//     try {
-//       const { data } = await axios.post(`/notices`, newNotice);
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const createHero = createAsyncThunk(
+  "heroes/createHero",
+  async (
+    { nickname, real_name, origin_description, catch_phrase, images },
+    { rejectWithValue }
+  ) => {
+    try {
+      const { data } = await axios.post(`/api/heroes`, {
+        nickname,
+        real_name,
+        origin_description,
+        catch_phrase,
+        images,
+      });
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 // export const deleteNotice = createAsyncThunk(
 //   "notices/deleteNotice",

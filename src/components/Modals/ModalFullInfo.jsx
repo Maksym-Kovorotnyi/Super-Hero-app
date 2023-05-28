@@ -5,7 +5,7 @@ import Modal from "./Modal";
 import { deleteHero } from "../../redux/heroOperations";
 import { deleteHeroFromArray } from "../../redux/heroSlice";
 
-function ModalFullInfo({ open = false }) {
+function ModalFullInfo({ open = false, closemodal }) {
   const { _id, images, catch_phrase, nickname, origin_description, real_name } =
     useSelector(heroFullInfo);
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function ModalFullInfo({ open = false }) {
     const id = e.currentTarget.parentNode.id;
     await dispatch(deleteHero(id));
     dispatch(deleteHeroFromArray(id));
-    open(false);
+    closemodal(false);
   };
 
   return (

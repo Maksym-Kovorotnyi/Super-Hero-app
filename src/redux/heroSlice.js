@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { deleteHero, getHeroList, getOneHeroInfo } from "./heroOperations";
+import {
+  deleteHero,
+  getHeroList,
+  getOneHeroInfo,
+  createHero,
+} from "./heroOperations";
 
 const heroesInitialState = {
   heroes: [],
@@ -23,6 +28,7 @@ const heroesSlice = createSlice({
     builder.addCase(getHeroList.rejected, (state) => {
       state.isLoading = false;
     });
+
     builder.addCase(getOneHeroInfo.pending, (state) => {
       state.isLoading = true;
     });
@@ -33,6 +39,7 @@ const heroesSlice = createSlice({
     builder.addCase(getOneHeroInfo.rejected, (state) => {
       state.isLoading = false;
     });
+
     builder.addCase(deleteHero.pending, (state) => {
       state.isLoading = true;
     });
@@ -40,6 +47,16 @@ const heroesSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(deleteHero.rejected, (state) => {
+      state.isLoading = false;
+    });
+
+    builder.addCase(createHero.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(createHero.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(createHero.rejected, (state) => {
       state.isLoading = false;
     });
   },
