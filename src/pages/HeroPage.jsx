@@ -12,7 +12,7 @@ function HeroPage() {
 
   useEffect(() => {
     dispatch(getHeroList({ page: 1, limit: 5 }));
-  });
+  }, [dispatch]);
 
   const handleModalOpen = (e) => {
     const {

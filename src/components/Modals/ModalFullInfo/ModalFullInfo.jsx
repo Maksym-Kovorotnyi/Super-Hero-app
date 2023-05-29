@@ -42,7 +42,7 @@ function ModalFullInfo({ open = false, close }) {
                 Real name: <span className={css.dynText}>{real_name}</span>
               </p>
               <p className={css.text}>
-                Description:
+                Description:{" "}
                 <span className={css.dynText}>{origin_description}</span>
               </p>
 

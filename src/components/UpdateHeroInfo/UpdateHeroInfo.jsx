@@ -5,10 +5,10 @@ import { heroFullInfo } from "../../redux/heroSelectors";
 import { updateHero } from "../../redux/heroOperations";
 
 function UpdateHeroInfo({ closeModal }) {
-  const { _id, catch_phrase, nickname, origin_description, real_name, images } =
+  const { _id, catch_phrase, nickname, origin_description, real_name } =
     useSelector(heroFullInfo);
   const dispatch = useDispatch();
-  const [selectedFile, setSelectedFile] = useState(images);
+  const [selectedFile, setSelectedFile] = useState(false);
   const [changed, setChanged] = useState(false);
   const [nicknameInput, setNicknameInput] = useState(nickname);
   const [realNameInput, setRealNameInput] = useState(real_name);
@@ -23,15 +23,17 @@ function UpdateHeroInfo({ closeModal }) {
     formData.append("real_name", form.realName.value);
     formData.append("origin_description", form.description.value);
     formData.append("catch_phrase", form.phrase.value);
-    formData.append("images", selectedFile);
+    if (changed) {
+      formData.append("images", selectedFile);
+    }
 
     await dispatch(updateHero({ id: _id, updateInfo: formData }));
     closeModal(false);
   };
 
   const handleChangeFile = (e) => {
-    setSelectedFile(e.target.files[0]);
     setChanged(true);
+    setSelectedFile(e.target.files[0]);
   };
 
   const handleChangeInputs = (e) => {
