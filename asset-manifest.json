@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Super-Hero-app/static/css/main.b92890b0.css",
+    "main.js": "/Super-Hero-app/static/js/main.22ed30a8.js",
+    "index.html": "/Super-Hero-app/index.html",
+    "main.b92890b0.css.map": "/Super-Hero-app/static/css/main.b92890b0.css.map",
+    "main.22ed30a8.js.map": "/Super-Hero-app/static/js/main.22ed30a8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b92890b0.css",
+    "static/js/main.22ed30a8.js"
+  ]
+}
