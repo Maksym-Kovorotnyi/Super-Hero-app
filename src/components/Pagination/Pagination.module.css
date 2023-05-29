@@ -1,0 +1,32 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.pagContainer {
+    padding: 10px;
+    background-color: #FEF9F9;
+    box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
+    border-radius: 45px;
+}
+
+.pagBtn {
+    margin-right: 2px;
+    padding: 5px;
+    color: #0b7eea;
+    border: 1px solid #CCE4FB;
+    border-radius: 45px;
+}
+
+.pagBtn[disabled] {
+    color: #99c4ed;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagBtn:hover {
+    cursor: pointer;
+    background-color: #54ADFF;
+}

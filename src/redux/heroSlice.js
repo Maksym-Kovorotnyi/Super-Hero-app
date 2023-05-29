@@ -4,6 +4,7 @@ import {
   getHeroList,
   getOneHeroInfo,
   createHero,
+  updateHero,
 } from "./heroOperations";
 
 const heroesInitialState = {
@@ -58,6 +59,16 @@ const heroesSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(createHero.rejected, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(updateHero.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateHero.fulfilled, (state, { payload }) => {
+      state.heroCard = payload;
+      state.isLoading = false;
+    });
+    builder.addCase(updateHero.rejected, (state) => {
       state.isLoading = false;
     });
   },

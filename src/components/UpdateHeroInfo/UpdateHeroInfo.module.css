@@ -5,6 +5,7 @@
     transform: translate(-50%, -50%);
     width: 400px;
     max-width: 90%;
+    overflow: auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -14,44 +15,26 @@
     align-items: center;
 }
 
-.textInput {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.textArea {
-    width: 100%;
-    height: 200px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
-
-}
-
 .inputFileContainer {
     position: relative;
     width: 100%;
     height: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .inputFile {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     opacity: 0;
     cursor: pointer;
 }
 
 .inputFileLabel {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 5px 10px;
     background-color: #333;
     color: #fff;
     border: none;
@@ -59,12 +42,31 @@
     cursor: pointer;
 }
 
+.inputFile:hover,
 .inputFileLabel:hover {
     cursor: pointer;
     background-color: #555;
 }
 
-.form button {
+.textInputUpdate {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.textAreaUpdate {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.btn {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -73,6 +75,6 @@
     cursor: pointer;
 }
 
-.form button:hover {
+.btn {
     background-color: #555;
 }

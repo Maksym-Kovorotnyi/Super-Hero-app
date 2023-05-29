@@ -55,9 +55,9 @@ export const createHero = createAsyncThunk(
 
 export const updateHero = createAsyncThunk(
   "heroes/updateHero",
-  async (heroInfo, { rejectWithValue }) => {
+  async ({ id, updateInfo }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post(`/api/heroes`, heroInfo);
+      const { data } = await axios.patch(`/api/heroes/${id}`, updateInfo);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

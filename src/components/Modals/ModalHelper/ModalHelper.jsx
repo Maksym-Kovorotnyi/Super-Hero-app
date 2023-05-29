@@ -27,8 +27,8 @@ function ModalHelper({ modal = "", closemodal }) {
     <>
       {modal ? (
         <div className={css.backdrop} onClick={handleModalCloseByBackdrop}>
-          <ModalFullInfo open={modal === "fullInfo"} />
-          <ModalCreateHero open={modal === "createHero"} />
+          <ModalFullInfo open={modal === "fullInfo"} close={closemodal} />
+          <ModalCreateHero open={modal === "createHero"} close={closemodal} />
         </div>
       ) : (
         ""

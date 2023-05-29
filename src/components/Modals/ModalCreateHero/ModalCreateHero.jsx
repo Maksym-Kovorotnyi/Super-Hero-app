@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { createHero } from "../../../redux/heroOperations";
 import css from "./ModalCreateHero.module.css";
 
-function ModalCreateHero({ open = false }) {
+function ModalCreateHero({ open = false, close }) {
   const dispatch = useDispatch();
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -21,6 +21,7 @@ function ModalCreateHero({ open = false }) {
     formData.append("images", selectedFile);
 
     await dispatch(createHero(formData));
+    close(false);
   };
   const handleChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -43,7 +44,7 @@ function ModalCreateHero({ open = false }) {
             placeholder="RealName"
           />
           <textarea
-            className={css.textarea}
+            className={css.textArea}
             type="text"
             name="description"
             placeholder="Description"
@@ -62,9 +63,11 @@ function ModalCreateHero({ open = false }) {
               id="image"
               onChange={handleChange}
             />
-            <label className={css.inputFileLabel} htmlFor="image">
-              Choose File
-            </label>
+            {
+              <label className={css.inputFileLabel} htmlFor="image">
+                {selectedFile ? selectedFile.name : "Choose file"}
+              </label>
+            }
           </div>
 
           <button type="submit">Add hero</button>

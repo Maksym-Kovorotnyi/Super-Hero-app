@@ -1,23 +1,26 @@
-.item{
-    width: 350px;
-    height: 550px;
+.item {
+    width: 250px;
+    height: fit-content;
     background-color: #FFFFFF;
     box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
     border-radius: 0px 0px 40px 40px;
     padding: 10px;
 }
-.img{
-    width: 350px;
-    height: 400px;
+
+.img {
+    width: 250px;
+    height: 350px;
 }
-.text{
+
+.text {
     font-style: normal;
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 33px;
-        color: #111111;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: #111111;
 }
-.btn{
+
+.btn {
     width: 100%;
     height: 48px;
     color: #54ADFF;
@@ -25,7 +28,9 @@
     border: 2px solid #54ADFF;
     border-radius: 40px;
 }
-.btn:hover{
+
+.btn:hover {
+    cursor: pointer;
     color: #fff;
     background-color: #54ADFF;
 }
