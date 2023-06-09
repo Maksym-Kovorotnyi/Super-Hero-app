@@ -54,7 +54,6 @@ function UpdateHeroInfo({ closeModal }) {
         break;
     }
   };
-  console.log(selectedFile);
   return (
     <>
       <form onSubmit={handleSubmit}>

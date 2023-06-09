@@ -11,7 +11,7 @@ function HeroItem() {
   const handleHeroCard = async (e) => {
     await dispatch(getOneHeroInfo(e.currentTarget.parentNode.id));
   };
-
+  console.log(heroes);
   return (
     <>
       {heroes.map((hero) => {

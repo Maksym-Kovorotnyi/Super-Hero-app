@@ -72,13 +72,6 @@ const heroesSlice = createSlice({
       state.isLoading = false;
     });
   },
-  reducers: {
-    deleteHeroFromArray(state, { payload }) {
-      state.heroes = state.heroes.filter((hero) => hero._id !== payload);
-      state.heroCard = [];
-    },
-  },
 });
 
 export const heroesReducer = heroesSlice.reducer;
-export const { deleteHeroFromArray } = heroesSlice.actions;
